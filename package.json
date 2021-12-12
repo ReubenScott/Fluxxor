@@ -1,0 +1,38 @@
+{
+  "name": "fluxxor",
+  "version": "0.1.0",
+  "private": true,
+  "dependencies": {
+    "fluxxor": "1.7.3",
+    "react": "15.2.0",
+    "react-dom": "15.2.0",
+    "react-scripts": "~4.0.3"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject"
+  },
+  "eslintConfig": {
+    "extends": [
+      "react-app"
+    ]
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  },
+  "devDependencies": {
+    "gulp": "3.9.1",
+    "gulp-uglify": "1.5.4"
+  }
+}
