@@ -14,7 +14,12 @@ const TodoItem = React.createClass({
 		textDecoration: this.props.todo.complete ? "line-through" : ""
 	  };
   
-	  return <span style={style} onClick={this.onClick}>{this.props.todo.text}</span>;
+	  return (
+		<div>
+	      <span style={style} onClick={this.onClick}>{this.props.todo.text}</span>
+	      <p style={style} onClick={this.onClick}>{this.props.todo.text}</p>
+		</div>
+	   );
 	},
   
 	onClick: function() {

@@ -2,13 +2,12 @@
   "name": "fluxxor",
   "version": "0.1.0",
   "private": true,
-  "dependencies": {
-    "fluxxor": "1.7.3",
-    "react": "15.2.0",
-    "react-dom": "15.2.0",
-    "react-scripts": "~4.0.3"
-  },
+  "author": "",
+  "license": "ISC",
+  "main": "index.js",
   "scripts": {
+    "watch": "run-p watch_*",
+    "watch_App": "watchify -t babelify ./src/index.js -o ./dist/js/index.js -v -d",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
@@ -31,8 +30,31 @@
       "last 1 safari version"
     ]
   },
+  "dependencies": {},
   "devDependencies": {
+    "babel": "6.5.2",
+    "babel-core": "6.10.4",
+    "babel-es6-polyfill": "1.0.1",
+    "babel-polyfill": "6.9.1",
+    "babel-preset-es2015": "6.9.0",
+    "babel-preset-react": "6.5.0",
+    "babelify": "7.3.0",
+    "browserify": "13.0.1",
+    "fluxxor": "1.7.3",
     "gulp": "3.9.1",
-    "gulp-uglify": "1.5.4"
+    "gulp-uglify": "1.5.4",
+    "jquery": "^2.1.4",
+    "licensify": "3.1.2",
+    "npm-run-all": "^4.1.1",
+    "react": "15.2.0",
+    "react-dom": "15.2.0",
+    "react-scripts": "4.0.3",
+    "reactify": "1.1.1",
+    "uglify": "0.1.5",
+    "uglify-js": "2.6.3",
+    "uglifyjs": "2.4.10",
+    "vinyl-buffer": "1.0.0",
+    "vinyl-source-stream": "1.1.0",
+    "watchify": "3.7.0"
   }
 }

@@ -2,6 +2,27 @@
   "version": "0.2.0",
   "configurations": [
     {
+      "name": "Launch Chrome against localhost",
+      "type": "chrome",
+      "request": "launch",
+      "runtimeExecutable": "D:/Application/Browser/Chromium/chrome.exe",
+      "runtimeArgs": ["--remote-debugging-port=9222"],
+      "sourceMaps": true ,
+      "url": "http://localhost:3000",
+      "userDataDir": "${workspaceFolder}/.vscode/chrome",
+      "webRoot": "${workspaceFolder}/src",
+      "sourceMapPathOverrides": {
+        "webpack:///src/*": "${webRoot}/*"
+      }      
+    },
+    {
+      "name": "Attach to Chrome",
+      "type": "chrome",
+      "request": "attach", 
+      "port": 9222
+    },
+
+    {
       "name": "Launch firefox",
       "type": "firefox",
       "request": "launch",
@@ -9,22 +30,13 @@
       "webRoot": "${workspaceFolder}",
       "profile": "default",
       "firefoxExecutable": "D:/Application/Browser/Firefox/firefox.exe",
-      "firefoxArgs": [
-        "-start-debugger-server",
-        "-no-remote"
-      ],
+      "firefoxArgs": ["-start-debugger-server","-no-remote"],
       "log": {
         "consoleLevel": {
           "PathConversion": "Warn",
           "default": "Warn"
         }
-      },
-      "pathMappings": [
-        {
-          "url": "file:///E:/Studio/VSCode/ReactDemo/Fluxxor/src",
-          "path": "${workspaceFolder}/src"
-        }
-      ]
+      }
     }
   ]
 }
