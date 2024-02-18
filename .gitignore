@@ -3,3 +3,7 @@
 /out
 /.idea
 /build
+/.eslintignore
+/.eslintrc.js
+/.prettierignore
+/package-lock.json
