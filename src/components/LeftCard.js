@@ -1,30 +1,60 @@
-import React, { Fragment } from 'react';
+import React, { useEffect, useState, useRef } from 'react';
+import $ from 'jquery';
+import DataTables from "datatables.net";
 
-import {
-    Button, UncontrolledAlert, Card, CardImg, CardBody,
-    CardTitle, CardSubtitle, CardText
-} from 'reactstrap';
+function LeftCard(props, ref) {
+    const [data, setData] = useState([]);
+    const tableRef = useRef();
 
-const BANNER = 'https://i.imgur.com/CaKdFMq.jpg';
+    useEffect(() => {
+        // 使用 jQuery 初始化 DataTables
+        $(document).ready(function () {
+            $('#myTable').DataTable({
+                data: data,
+                columns: [
+                    { title: 'ID' },
+                    { title: '姓名' },
+                    { title: '年龄' },
+                ],
+            });
+        });
 
-const LeftCard = () => (
-    <Fragment>
+        // $('#myTable').DataTable(tableRef.current, {
+        //     data: dataSet,
+        //     columns: [
+        //         { title: "Name" },
+        //         { title: "Occupation" },
+        //         { title: "City" },
+        //         { title: "ZIP" },
+        //         { title: "Birthday" },
+        //         { title: "Salary" },
+        //     ],
+        // });
 
-        <UncontrolledAlert color="danger" className="d-none d-lg-block">
-            <strong>Account not activated.</strong>
-        </UncontrolledAlert>
+    }, [data]);
 
-        <Card>
-            <CardImg top width="100%" src={BANNER} alt="banner" />
-            <CardBody>
-                <CardTitle className="h3 mb-2 pt-2 font-weight-bold text-secondary">Lorem Ipsum</CardTitle>
-                <CardSubtitle className="text-secondary mb-3 font-weight-light text-uppercase" style={{ fontSize: '0.8rem' }}>Lorem Ipsum, Lagos</CardSubtitle>
-                <CardText className="text-secondary mb-4" style={{ fontSize: '0.75rem' }}>Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a gallery of type and scrambled it to make a type specimen book</CardText>
-                <Button color="success" className="font-weight-bold">Lorem Ipsum</Button>
-            </CardBody>
-        </Card>
-
-    </Fragment>
-);
+    return (
+        <div>
+            <table id="myTable">
+                <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>姓名</th>
+                    <th>年龄</th>
+                </tr>
+                </thead>
+                <tbody>
+                {data.map((item) => (
+                    <tr key={item.id}>
+                        <td>{item.id}</td>
+                        <td>{item.name}</td>
+                        <td>{item.age}</td>
+                    </tr>
+                ))}
+                </tbody>
+            </table>
+        </div>
+    );
+};
 
 export default LeftCard;

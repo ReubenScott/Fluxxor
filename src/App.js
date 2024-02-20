@@ -4,25 +4,29 @@ import './style/App.scss';
 import React, { Fragment } from 'react';
 // import logo from './logo.svg';
 import Search from "./components/Search";
+import LeftCard from "./components/LeftCard";
+import Header from "./components/Header";
+import Table from "./components/Table";
 
+// テーブルの中身
+const tableData = [
+    [1, "Taro", "Tokyo",123],
+    [2, "Jiro", "Osaka", 20],
+    [3, "Hanako", "Paris", 18],
+    [4, "Alice", "New York",26],
+    [5, "Bob", "London",24]
+];
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        {/*<img src={logo} className="App-logo" alt="logo" />*/}
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-      </header>
+      <Header />
 
       <Search evidenceFileName={'left111'}/>
 
-        <ul>
-            <li>one223</li>
-            <li>two22</li>
-            <li>three22</li>
-        </ul>
+        <Table />
+
+        <LeftCard data={tableData} />
 
     </div>
   );
