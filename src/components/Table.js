@@ -1,59 +1,46 @@
-import React from 'react';
+import React, { useEffect } from 'react';
+import $ from 'jquery';
+import DataTables from "datatables.net";
 
-const Table = () => (
-    <table className="table table-striped table-hover ">
-        <thead>
-        <tr>
-            <th>#</th>
-            <th>Column heading</th>
-            <th>Column heading</th>
-            <th>Column heading</th>
-        </tr>
-        </thead>
-        <tbody>
-        <tr>
-            <td>1</td>
-            <td>Column content</td>
-            <td>Column content</td>
-            <td>Column content</td>
-        </tr>
-        <tr>
-            <td>2</td>
-            <td>Column content</td>
-            <td>Column content</td>
-            <td>Column content</td>
-        </tr>
-        <tr className="info">
-            <td>3</td>
-            <td>Column content</td>
-            <td>Column content</td>
-            <td>Column content</td>
-        </tr>
-        <tr className="success">
-            <td>4</td>
-            <td>Column content</td>
-            <td>Column content</td>
-            <td>Column content</td>
-        </tr>
-        <tr className="danger">
-            <td>5</td>
-            <td>Column content</td>
-            <td>Column content</td>
-            <td>Column content</td>
-        </tr>
-        <tr className="warning">
-            <td>6</td>
-            <td>Column content</td>
-            <td>Column content</td>
-            <td>Column content</td>
-        </tr>
-        <tr className="active">
-            <td>7</td>
-            <td>Column content</td>
-            <td>Column content</td>
-            <td>Column content</td>
-        </tr>
-        </tbody>
-    </table>
-);
-export default Table;
+function DataTable(props) {
+
+    useEffect(() => {
+        // 在组件挂载时执行
+
+        // 使用 jQuery 初始化 DataTables
+        $(document).ready(function () {
+            $('#myTable').DataTable({
+                data: props.data,
+                columns: [
+                    { title: ' ID ' },
+                    { title: ' 姓名 ' },
+                    { title: ' 年龄 ' },
+                    { title: ' 年龄 ' },
+                ],
+            });
+        });
+
+        return () => {
+            // 在组件卸载时执行
+        };
+    }, []);
+
+    return (
+        <div>
+            <table className="table table-striped table-hover" id="myTable" />
+
+            <ul className="pagination pagination-sm">
+                <li className="disabled"><a href="#">&laquo;</a></li>
+                <li className="active"><a href="#">1</a></li>
+                <li><a href="#">2</a></li>
+                <li><a href="#">3</a></li>
+                <li><a href="#">4</a></li>
+                <li><a href="#">5</a></li>
+                <li><a href="#">&raquo;</a></li>
+            </ul>
+
+        </div>
+    );
+};
+
+export default DataTable;

@@ -1,12 +1,14 @@
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './style/App.scss';
 
-import React, { Fragment } from 'react';
+import React, {Fragment, useState} from 'react';
 // import logo from './logo.svg';
 import Search from "./components/Search";
-import LeftCard from "./components/LeftCard";
-import Header from "./components/Header";
 import Table from "./components/Table";
+import Header from "./layout/Header";
+import Nav from "./layout/Nav";
+import Grid from "./components/Grid";
+import Favourite from "./components/Favourite";
 
 // テーブルの中身
 const tableData = [
@@ -17,16 +19,25 @@ const tableData = [
     [5, "Bob", "London",24]
 ];
 
+
 function App() {
+    document.title = "My Component";
+
+  const [data, setData] = useState(tableData);
+
   return (
     <div className="App">
       <Header />
 
-      <Search evidenceFileName={'left111'}/>
+      <Nav />
 
-        <Table />
+      <Favourite />
 
-        <LeftCard data={tableData} />
+      <Search />
+
+        <Grid />
+
+        <Table data={data} />
 
     </div>
   );
